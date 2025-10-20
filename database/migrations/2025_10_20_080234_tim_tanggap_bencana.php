@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id()->primary();
+        Schema::create('tim_tanggap_bencana', function (Blueprint $table) {
+            $table->id('id_tim')->primary();
             $table->string('nama');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('jalan')->nullable();
-            $table->string('kota')->nullable();
-            $table->string('role')->default('user');
+            $table->string('no_hp');
+            $table->string('wilayhu_tugas');
+            $table->string('jumlah_anggota');
+            $table->string('id_petugas');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tim_tanggap_bencana');
     }
 };
